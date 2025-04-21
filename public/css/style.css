@@ -19,7 +19,8 @@ body {
     opacity: 0.9;
     color: white;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     background-color: #c74f5d;
 }
 
@@ -35,4 +36,14 @@ body {
     /* pas hover background jadi putih */
     color: #000000 !important;
     /* text jadi merah biar kebaca */
+}
+
+/* modal */
+.modal-content {
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }

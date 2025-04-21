@@ -8,4 +8,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/',[QuotesController::class, 'index']);
+Route::get('/',[QuotesController::class, 'index'])->name('home');
+Route::post('/tambah',[QuotesController::class, 'store'])->name('generate');

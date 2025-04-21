@@ -41,12 +41,24 @@
                         <a class="nav-link text-white" href="#">Contact</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a href="" class="nav-link btn-generate">Generate Quotes</a>
+                        <a href="" class="nav-link btn-generate" data-bs-toggle="modal"
+                            data-bs-target="#generateQuotesModal">Generate Quotes</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    @if (session('success'))
+        <script>
+            alert('{{ session('success') }}');
+        </script>
+    @endif
+
+    @if (session('alert'))
+        <script>
+            alert('{{ session('alert') }}');
+        </script>
+    @endif
 
     <div class="container-fluid my-5" style="padding-top: 50px;">
         <div class="row justify-content-center">
@@ -71,6 +83,49 @@
             @endforeach
         </div>
     </div>
+
+    <!-- Tombol buka modal -->
+    {{-- <button type="button" class="btn btn-light text-dark" data-bs-toggle="modal" data-bs-target="#generateQuotesModal">
+        Generate Quotes
+    </button> --}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="generateQuotesModal" tabindex="-1" aria-labelledby="generateQuotesLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 10px;">
+                <div class="modal-header"
+                    style="background: linear-gradient(to right, #4b006e, #ff6e7f); color: white;">
+                    <h5 class="modal-title" id="generateQuotesLabel">Generate Quotes</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form action="{{ route('generate') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="text" class="form-label">Quotes Of The Day</label>
+                            <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author (opsional)</label>
+                            <input type="text" class="form-control" id="author" name="author">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Background</label>
+                            <input class="form-control" type="file" id="image" name="image"
+                                accept="image/*">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Generate</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

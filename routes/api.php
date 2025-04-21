@@ -4,8 +4,10 @@ use App\Http\Controllers\quetesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
 
 Route::get('/quote', [quetesController::class, 'index']);
+Route::post('/generate', [quetesController::class, 'store']);
+
