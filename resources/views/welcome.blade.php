@@ -126,6 +126,20 @@
         </div>
     </div>
 
+    {{-- footer --}}
+    <footer class="text-white py-3 mt-5" style="background: linear-gradient(to right, #4b006e, #ff6e7f); margin-bottom: -10px;">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Quotes App — Built with ❤️ by Lo</p>
+            <div class="mt-2">
+                <a href="#" class="text-white mx-2">Privacy</a>
+                |
+                <a href="#" class="text-white mx-2">Terms</a>
+                |
+                <a href="#" class="text-white mx-2">Contact</a>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
